@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Gmail ChatGPT",
+    "description": "ChatGPT writer for Gmail",
+    "version": "1.0.0",
+    "author": "Ulan Dev",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": ["gmail-script.js"]
+        },
+        {
+            "matches": ["https://chat.openai.com/*"],
+            "js": ["chatgpt-script.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://mail.google.com/*",
+        "https://chat.openai.com/*"
+    ]
+  }
